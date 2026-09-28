@@ -3,7 +3,7 @@ name: Scheduled Build and Deploy Python App
 
 on:
   schedule:
-    - cron: '33 04 * * *'
+    - cron: '37 16 * * *'
 
   # Optional: allows you to test/run the deployment manually
   workflow_dispatch:
