@@ -1,12 +1,12 @@
 
-name: Build and Deploy Python App
+name: Scheduled Build and Deploy Python App
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '33 16 * * *'
 
-  workflow_dispatch:     
+  # Optional: allows you to test/run the deployment manually
+  workflow_dispatch:
 
 jobs:
 
@@ -30,6 +30,7 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
+
           pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest
@@ -106,4 +107,5 @@ jobs:
           sudo systemctl restart python-app
 
           EOF
+
 
